@@ -34,7 +34,6 @@ const titles = [
   'Software Engineer',
   'Data Scientist',
   'AI Systems Builder',
-  'Cloud Architect',
 ];
 let titleIndex = 0;
 const rotatingEl = document.getElementById('rotatingTitle');
