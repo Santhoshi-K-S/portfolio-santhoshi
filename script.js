@@ -32,8 +32,7 @@ mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
    ============================ */
 const titles = [
   'Software Engineer',
-  'Data Scientist',
-  'AI Systems Builder',
+  'Data Scientist'
 ];
 let titleIndex = 0;
 const rotatingEl = document.getElementById('rotatingTitle');
