@@ -377,18 +377,18 @@ kbd {
 .section-sub { color: var(--muted); margin-top: 16px; font-size: 16px; }
 
 /* ============================
-   HERO TERMINAL
-   A small window floating over the background photo
+   TERMINAL WINDOW (contact)
+   Local time for anyone deciding when to reach out
    ============================ */
-.hero-term {
-  position: relative; z-index: 3; justify-self: end; width: 290px; margin-bottom: -8px;
-  background: #1a1816; color: #efe9df; border-radius: 12px; overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.term-window {
+  position: relative; z-index: 3; width: 320px;
+  background: rgba(20, 18, 16, 0.82); color: #efe9df; border-radius: 12px; overflow: hidden;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 24px 50px -18px rgba(26, 24, 22, 0.55);
   transition: transform 0.4s var(--ease);
 }
-.hero-term:hover { transform: translateY(-4px); }
-:root[data-theme="dark"] .hero-term { background: #0e0d0b; border-color: var(--hair-2); }
+.term-window:hover { transform: translateY(-4px); }
 .term-bar {
   display: flex; align-items: center; gap: 6px; padding: 9px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07); font-size: 11px; color: #8f877b;
@@ -715,7 +715,10 @@ kbd {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(90deg, #1a1816 0%, rgba(26,24,22,0.88) 45%, rgba(26,24,22,0.35) 100%);
 }
-.contact-inner { position: relative; z-index: 1; }
+.contact-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center;
+}
 .contact .section-label { color: #e07a55; }
 .contact-code { font-size: 13px; color: #a39a8e; line-height: 1.7; margin-bottom: 24px; white-space: pre; }
 .contact-title {
@@ -812,7 +815,6 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--hair); }
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 70%, transparent 100%);
   }
-  .hero-term { order: 3; justify-self: auto; width: auto; margin: -110px var(--gutter) 0; }
   .hats { grid-template-columns: 1fr 1fr; }
   .stack-visual svg { max-width: 300px; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -820,6 +822,8 @@ footer { padding: 64px 0 40px; border-top: 1px solid var(--hair); }
   .stat, .stat + .stat { padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--hair); }
   .career-grid { grid-template-columns: 1fr; }
   .journey { display: none; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .term-window { width: 100%; max-width: 360px; }
   .contact-media::after { background: linear-gradient(180deg, rgba(26,24,22,0.7), #1a1816 75%); }
 }
 

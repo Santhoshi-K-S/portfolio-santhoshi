@@ -47,7 +47,7 @@ document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
 /* ============================
    HERO IDENTITY SWITCHER
-   Each word syncs the terminal below.
+   Each word lights up its name in the terminal's whoami.
    The accent rule fills as the autoplay countdown.
    ============================ */
 const IDENTITY_COUNT = 3;
@@ -129,8 +129,8 @@ const statObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('[data-count]').forEach((el) => statObserver.observe(el));
 
 /* ============================
-   HERO TERMINAL
-   Local time, and a command that follows the active identity
+   TERMINAL (contact)
+   Local time, the active identity, and a few typed commands
    ============================ */
 const localTime = document.getElementById('localTime');
 function updateTime() {
@@ -141,24 +141,39 @@ function updateTime() {
 updateTime();
 setInterval(updateTime, 30000);
 
-const typedEl = document.getElementById('typed');
 const whoEls = document.querySelectorAll('.who');
-const identityCommands = ['python eval_judge.py --all', 'git commit -m "ship it"', 'vim case-study.md'];
-let typer = null;
-
 function syncTerminal(i) {
   whoEls.forEach(el => el.classList.toggle('is-on', Number(el.dataset.identity) === i));
-  clearInterval(typer);
-  const cmd = identityCommands[i];
-  if (prefersReducedMotion) { typedEl.textContent = cmd; return; }
+}
+
+const typedEl = document.getElementById('typed');
+const commands = ['mail santhoshiks73@gmail.com', 'open linkedin.com/in/santhoshi-k-s', 'git commit -m "ship it"'];
+let cmdIndex = 0;
+
+function typeCommand() {
+  const cmd = commands[cmdIndex];
   let n = 0;
   typedEl.textContent = '';
-  typer = setInterval(() => {
+  const typer = setInterval(() => {
     typedEl.textContent = cmd.slice(0, ++n);
-    if (n === cmd.length) clearInterval(typer);
+    if (n < cmd.length) return;
+    clearInterval(typer);
+    setTimeout(() => {
+      cmdIndex = (cmdIndex + 1) % commands.length;
+      typeCommand();
+    }, 2600);
   }, 45);
 }
-syncTerminal(0);
+
+if (prefersReducedMotion) {
+  typedEl.textContent = commands[0];
+} else {
+  new IntersectionObserver(([entry], obs) => {
+    if (!entry.isIntersecting) return;
+    typeCommand();
+    obs.disconnect();
+  }, { threshold: 0.3 }).observe(document.querySelector('.term-window'));
+}
 
 /* ============================
    WORKSPACE HOTSPOTS
