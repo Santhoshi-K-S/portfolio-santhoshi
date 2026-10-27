@@ -47,20 +47,18 @@ document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 
 /* ============================
    HERO IDENTITY SWITCHER
-   Each word wipes its photo into the plate.
+   Each word syncs the terminal below.
    The accent rule fills as the autoplay countdown.
    ============================ */
 const IDENTITY_COUNT = 3;
 const CYCLE_MS = 5000;
 const heroTitle = document.querySelector('.hero-title');
 const identityBtns = document.querySelectorAll('.identity');
-const plateImgs = document.querySelectorAll('.plate-img');
 let currentIdentity = 0;
 let identityTimer = null;
 
 function showIdentity(i) {
   if (i === currentIdentity) return;
-  plateImgs.forEach(img => img.classList.toggle('is-active', Number(img.dataset.identity) === i));
   syncTerminal(i);
   identityBtns.forEach(btn => {
     const on = Number(btn.dataset.identity) === i;

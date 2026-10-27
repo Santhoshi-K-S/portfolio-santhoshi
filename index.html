@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="images/headshot.jpg" />
+  <link rel="preload" as="image" href="images/builder.jpg" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     // Apply saved theme before paint to avoid a flash
@@ -70,37 +70,34 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="live-dot"></span>Open to new opportunities</p>
-        <h1 class="hero-title" aria-label="Engineer. Builder. Creator.">
-          <button class="identity is-active" data-identity="0" aria-pressed="true">Engineer.</button>
-          <button class="identity" data-identity="1" aria-pressed="false">Builder.</button>
-          <button class="identity" data-identity="2" aria-pressed="false"><em>Creator.</em></button>
-        </h1>
-        <p class="hero-bio">
-          I'm <strong>Santhoshi</strong>, a software engineer and data scientist with about five years of building AI-driven
-          platforms, enterprise privacy systems, and CPQ applications. Right now at <strong>Tempero.tech</strong>, I build agentic
-          text-to-scenario pipelines for ADAS/AD virtual simulation testing and work closely with the founders across engineering, product,
-          and go-to-market.
-        </p>
-        <div class="hero-actions">
-          <a href="#experience" class="btn btn-accent">See my work <span class="arr">→</span></a>
-          <a href="Santhoshi_CV.pdf" download class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Resume
-          </a>
-        </div>
+    <div class="hero-stage">
+      <!-- Background photo: fills the right of the stage and fades into the paper -->
+      <div class="hero-bg">
+        <img src="images/builder.jpg" alt="Santhoshi coding at a desk" class="hero-bg-img" />
       </div>
-
-      <figure class="hero-plate">
-        <div class="plate-frame">
-          <img src="images/headshot.jpg" alt="Portrait of Santhoshi" class="plate-img is-active" data-identity="0" />
-          <img src="images/builder.jpg" alt="Santhoshi coding at a desk" class="plate-img" data-identity="1" loading="lazy" />
-          <img src="images/creator.jpg" alt="Illustrated Santhoshi at a desk with a Build, Create, Grow note on the wall" class="plate-img" data-identity="2" loading="lazy" />
-          <span class="plate-corner tl"></span><span class="plate-corner tr"></span>
-          <span class="plate-corner bl"></span><span class="plate-corner br"></span>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span>Open to new opportunities</p>
+          <h1 class="hero-title" aria-label="Engineer. Builder. Creator.">
+            <button class="identity is-active" data-identity="0" aria-pressed="true">Engineer.</button>
+            <button class="identity" data-identity="1" aria-pressed="false">Builder.</button>
+            <button class="identity" data-identity="2" aria-pressed="false"><em>Creator.</em></button>
+          </h1>
+          <p class="hero-bio">
+            I'm <strong>Santhoshi</strong>, a software engineer and data scientist with about five years of building AI-driven
+            platforms, enterprise privacy systems, and CPQ applications. Right now at <strong>Tempero.tech</strong>, I build agentic
+            text-to-scenario pipelines for ADAS/AD virtual simulation testing and work closely with the founders across engineering, product,
+            and go-to-market.
+          </p>
+          <div class="hero-actions">
+            <a href="#experience" class="btn btn-accent">See my work <span class="arr">→</span></a>
+            <a href="Santhoshi_CV.pdf" download class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Resume
+            </a>
+          </div>
         </div>
+
         <div class="hero-term mono" aria-label="Terminal showing local time in India">
           <div class="term-bar"><i></i><i></i><i></i><span>~/santhoshi · local time</span></div>
           <div class="terminal">
@@ -111,11 +108,11 @@
             <div><span class="t-accent">$</span> <span id="typed"></span><span class="caret"></span></div>
           </div>
         </div>
-      </figure>
+      </div>
     </div>
 
     <!-- Stats -->
-    <div class="container">
+    <div class="container hero-stats">
       <div class="stats">
         <a href="#experience" class="stat">
           <span class="stat-num serif">~<span data-count="5">0</span> yrs</span>
