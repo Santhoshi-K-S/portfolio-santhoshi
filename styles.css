@@ -255,7 +255,6 @@ kbd {
   position: relative; z-index: 1;
   display: grid; grid-template-columns: minmax(0, 620px) 1fr; gap: 32px; align-items: end;
 }
-.eyebrow { font-size: 13px; color: var(--muted); margin-bottom: 20px; font-family: var(--mono); }
 
 .hero-title {
   font-family: var(--serif); font-weight: 400;
